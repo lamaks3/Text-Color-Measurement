@@ -25,7 +25,6 @@ public static class ColorDictionary
 {
     public static Dictionary<string, string> Colors { get; } = new Dictionary<string, string>
     {
-        // Основные цвета
         ["син"] = "Blue",
         ["крас"] = "Red",
         ["зел"] = "Green",
@@ -34,26 +33,13 @@ public static class ColorDictionary
         ["черн"] = "Black",
         ["оранж"] = "Orange",
         ["фиолет"] = "Purple",
-
-        // Синие оттенки
-        ["лазур"] = "Azure",
         ["бирюз"] = "Turquoise",
         ["ультрамарин"] = "Ultramarine",
         ["небесн"] = "SkyBlue",
-
-        // Красные оттенки
         ["ал"] = "Crimson",
-        ["малинов"] = "Raspberry",
         ["борд"] = "Bordeaux",
-        ["вишн"] = "Cherry",
-
-        // Зеленые оттенки
         ["изумруд"] = "Emerald",
-        ["оливк"] = "Olive",
         ["лайм"] = "Lime",
-        ["мят"] = "Mint",
-
-        // И еще много других цветов...
         ["золот"] = "Gold",
         ["серебр"] = "Silver",
         ["роз"] = "Pink",
