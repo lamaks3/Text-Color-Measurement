@@ -1,0 +1,14 @@
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/TextReader
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/TextReader.deps.json
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/TextReader.runtimeconfig.json
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/TextReader.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/TextReader.pdb
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.AssemblyInfoInputs.cache
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.AssemblyInfo.cs
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.csproj.CoreCompileInputs.cache
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/refint/TextReader.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.pdb
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.genruntimeconfig.cache
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/ref/TextReader.dll
