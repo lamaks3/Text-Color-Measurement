@@ -12,3 +12,4 @@
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.pdb
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.genruntimeconfig.cache
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/ref/TextReader.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.sourcelink.json
