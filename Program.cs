@@ -66,6 +66,7 @@ class Program
             Console.WriteLine($"File opened. Lenght: {fileContent.Length}");
             FindAndCountColors(fileContent);
         }
+        //CreateWhiteImage();-not working
     }
 
     static void FindAndCountColors(string text)
@@ -122,6 +123,21 @@ class Program
         else
         {
             Console.WriteLine("No colors found in the text.");
+        }
+    }
+static void CreateWhiteImage() //function doesnt work yet
+    {
+        int width = 800;
+        int height = 600;
+
+        using (var bitmap = new Bitmap(width, height))
+        {
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                g.Clear(Color.White);
+            }
+
+            bitmap.Save("white_image.png", ImageFormat.Png);
         }
     }
 }
