@@ -13,3 +13,9 @@
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.genruntimeconfig.cache
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/ref/TextReader.dll
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.sourcelink.json
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/System.Drawing.Common.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/System.Private.Windows.Core.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.csproj.AssemblyReference.cache
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.csproj.Up2Date

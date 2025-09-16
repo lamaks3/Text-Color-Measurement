@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Drawing;
+using System.Drawing.Imaging;
 
 public class FileReader
 {
@@ -65,30 +63,22 @@ class Program
 
         if (fileContent != null)
         {
-            Console.WriteLine("Info from file:");
-            Console.WriteLine("=================");
-            Console.WriteLine(fileContent);
-            Console.WriteLine("=================");
-            Console.WriteLine($"File opened successfully. Quantity of symbols: {fileContent.Length}");
-
+            Console.WriteLine($"File opened. Lenght: {fileContent.Length}");
             FindAndCountColors(fileContent);
         }
     }
 
     static void FindAndCountColors(string text)
     {
-        Console.WriteLine("\n=== COLOR ANALYSIS ===");
-        
         Dictionary<string, int> colorCounts = new Dictionary<string, int>();
         Dictionary<string, List<string>> colorExamples = new Dictionary<string, List<string>>();
 
-        var words = text.Split(new[] { ' ', '.', ',', '!', '?', ';', ':', '\n', '\r', '\t' }, 
-                             StringSplitOptions.RemoveEmptyEntries);
-        
+        var words = text.Split(new[] { ' ', '.', ',', '!', '?', ';', ':', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
         foreach (var word in words)
         {
             string lowerWord = word.ToLower();
-            
+
             foreach (var colorPair in ColorDictionary.Colors)
             {
                 if (lowerWord.Contains(colorPair.Key))
@@ -103,7 +93,7 @@ class Program
                     {
                         colorCounts[colorName] = 1;
                     }
-                    
+
                     if (!colorExamples.ContainsKey(colorName))
                     {
                         colorExamples[colorName] = new List<string>();
@@ -119,18 +109,13 @@ class Program
         if (colorCounts.Count > 0)
         {
             Console.WriteLine("\nFound colors:");
-            Console.WriteLine("==============");
-            
+
             foreach (var color in colorCounts.OrderByDescending(x => x.Value))
             {
-                Console.WriteLine($"{color.Key}: {color.Value} times");
-                Console.WriteLine($"  Examples: {string.Join(", ", colorExamples[color.Key].Take(3))}");
-                if (colorExamples[color.Key].Count > 3)
-                {
-                    Console.WriteLine($"  ... and {colorExamples[color.Key].Count - 3} more");
-                }
+                Console.WriteLine($"{color.Key}: {color.Value} times" +
+                  $"({string.Join(", ", colorExamples[color.Key].Take(3))}" + "...)");
             }
-            
+
             Console.WriteLine($"\nTotal unique colors found: {colorCounts.Count}");
             Console.WriteLine($"Total color occurrences: {colorCounts.Values.Sum()}");
         }

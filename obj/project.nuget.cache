@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vyibGMdJPQQ=",
+  "dgSpecHash": "M7vAjO3xLzw=",
   "success": true,
   "projectFilePath": "/Users/lamaks/Documents/CodeSpace/C#/TextReader/TextReader.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/lamaks/.nuget/packages/microsoft.win32.systemevents/9.0.9/microsoft.win32.systemevents.9.0.9.nupkg.sha512",
+    "/Users/lamaks/.nuget/packages/system.drawing.common/9.0.9/system.drawing.common.9.0.9.nupkg.sha512"
+  ],
   "logs": []
 }
