@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "M7vAjO3xLzw=",
+  "dgSpecHash": "huEpN2Bbq5w=",
   "success": true,
   "projectFilePath": "/Users/lamaks/Documents/CodeSpace/C#/TextReader/TextReader.csproj",
   "expectedPackageFiles": [
     "/Users/lamaks/.nuget/packages/microsoft.win32.systemevents/9.0.9/microsoft.win32.systemevents.9.0.9.nupkg.sha512",
+    "/Users/lamaks/.nuget/packages/skiasharp/3.119.0/skiasharp.3.119.0.nupkg.sha512",
+    "/Users/lamaks/.nuget/packages/skiasharp.nativeassets.macos/3.119.0/skiasharp.nativeassets.macos.3.119.0.nupkg.sha512",
+    "/Users/lamaks/.nuget/packages/skiasharp.nativeassets.win32/3.119.0/skiasharp.nativeassets.win32.3.119.0.nupkg.sha512",
     "/Users/lamaks/.nuget/packages/system.drawing.common/9.0.9/system.drawing.common.9.0.9.nupkg.sha512"
   ],
   "logs": []

@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
-
+using System.IO;
+using SkiaSharp;
 public class FileReader
 {
     public static string ReadTextFromFile(string filePath)
@@ -63,10 +64,10 @@ class Program
 
         if (fileContent != null)
         {
-            Console.WriteLine($"File opened. Lenght: {fileContent.Length}");
+            Console.WriteLine($"File opened. Length: {fileContent.Length}");
             FindAndCountColors(fileContent);
         }
-        //CreateWhiteImage();-not working
+        Draw(); // Теперь это статический метод
     }
 
     static void FindAndCountColors(string text)
@@ -125,19 +126,24 @@ class Program
             Console.WriteLine("No colors found in the text.");
         }
     }
-static void CreateWhiteImage() //function doesnt work yet
+
+
+static void Draw()
+{
+    int width = 100;
+    int height = 100;
+
+    using (var bitmap = new SKBitmap(width, height))
+    using (var canvas = new SKCanvas(bitmap))
     {
-        int width = 800;
-        int height = 600;
-
-        using (var bitmap = new Bitmap(width, height))
+        canvas.Clear(SKColors.Blue);
+        using (var image = SKImage.FromBitmap(bitmap))
+        using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
+        using (var stream = File.OpenWrite("photo_res.png"))
         {
-            using (Graphics g = Graphics.FromImage(bitmap))
-            {
-                g.Clear(Color.White);
-            }
-
-            bitmap.Save("white_image.png", ImageFormat.Png);
+            data.SaveTo(stream);
         }
     }
+    Console.WriteLine("Image saved as photo_res.png");
+}
 }

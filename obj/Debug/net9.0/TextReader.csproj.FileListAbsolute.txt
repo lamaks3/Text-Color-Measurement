@@ -19,3 +19,8 @@
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.csproj.AssemblyReference.cache
 /Users/lamaks/Documents/CodeSpace/C#/TextReader/obj/Debug/net9.0/TextReader.csproj.Up2Date
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/SkiaSharp.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/runtimes/osx/native/libSkiaSharp.dylib
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/runtimes/win-arm64/native/libSkiaSharp.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/runtimes/win-x64/native/libSkiaSharp.dll
+/Users/lamaks/Documents/CodeSpace/C#/TextReader/bin/Debug/net9.0/runtimes/win-x86/native/libSkiaSharp.dll
