@@ -128,15 +128,16 @@ class Program
     }
 
 
-static void Draw()
-{
-    int width = 100;
-    int height = 100;
-
-    using (var bitmap = new SKBitmap(width, height))
-    using (var canvas = new SKCanvas(bitmap))
+    static void Draw()
     {
-        canvas.Clear(SKColors.Blue);
+        int width = 20;
+        int height = 20;
+        using (var bitmap = new SKBitmap(width, height))
+    { 
+        bitmap.SetPixel(0, 0, SKColors.Red);
+        bitmap.SetPixel(10, 10, SKColors.Blue); 
+        bitmap.SetPixel(19, 19, SKColors.Green); 
+
         using (var image = SKImage.FromBitmap(bitmap))
         using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
         using (var stream = File.OpenWrite("photo_res.png"))
@@ -144,6 +145,6 @@ static void Draw()
             data.SaveTo(stream);
         }
     }
-    Console.WriteLine("Image saved as photo_res.png");
-}
+        Console.WriteLine("Image saved as photo_res.png");
+    }
 }
