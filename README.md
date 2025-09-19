@@ -1,4 +1,4 @@
-Written in C#, cross-platform support
+Written in C#, cross-platform support.
 The program allows you to create a PNG image based on the colors found in the text from a .txt file.
 
 How the program works:
