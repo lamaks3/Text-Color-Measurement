@@ -1,62 +1,37 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using SkiaSharp;
+﻿using SkiaSharp;
 public class FileReader
 {
     public static string ReadTextFromFile(string filePath)
     {
-        try
-        {
-            if (!File.Exists(filePath))
-            {
-                throw new FileNotFoundException($"There is no file: {filePath}");
-            }
-            return File.ReadAllText(filePath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"File reading error: {ex.Message}");
-            return null;
-        }
-    }
-}
-
-public static class ColorDictionary
-{
-    public static Dictionary<string, string> Colors { get; } = new Dictionary<string, string>
-    {
-        ["син"] = "Blue",
-        ["крас"] = "Red",
-        ["зел"] = "Green",
-        ["желт"] = "Yellow",
-        ["бел"] = "White",
-        ["черн"] = "Black",
-        ["оранж"] = "Orange",
-        ["фиолет"] = "Purple",
-        ["бирюз"] = "Turquoise",
-        ["ультрамарин"] = "Ultramarine",
-        ["небесн"] = "SkyBlue",
-        ["ал"] = "Crimson",
-        ["борд"] = "Bordeaux",
-        ["изумруд"] = "Emerald",
-        ["лайм"] = "Lime",
-        ["золот"] = "Gold",
-        ["серебр"] = "Silver",
-        ["роз"] = "Pink",
-        ["сер"] = "Gray",
-        ["коричн"] = "Brown",
-        ["голуб"] = "LightBlue"
-    };
-
-    public static bool TryGetColor(string root, out string colorName)
-    {
-        return Colors.TryGetValue(root, out colorName);
+        return File.ReadAllText(filePath);
     }
 }
 
 class Program
 {
+    public static Dictionary<string, SKColor> Colors { get; } = new Dictionary<string, SKColor>
+{
+    ["син"] = SKColors.Blue,
+    ["крас"] = SKColors.Red,
+    ["зел"] = SKColors.Green,
+    ["желт"] = SKColors.Yellow,
+    ["бел"] = SKColors.White,
+    ["черн"] = SKColors.Black,
+    ["оранж"] = SKColors.Orange,
+    ["фиолет"] = SKColors.Purple,
+    ["бирюз"] = SKColors.Turquoise,
+    ["ультрамарин"] = SKColors.Indigo,
+    ["небесн"] = SKColors.SkyBlue,
+    ["борд"] = SKColors.Maroon, 
+    ["изумруд"] = SKColors.Green, 
+    ["лайм"] = SKColors.Lime,
+    ["золот"] = SKColors.Gold,
+    ["серебр"] = SKColors.Silver,
+    ["роз"] = SKColors.Pink,
+    ["сер"] = SKColors.Gray,
+    ["коричн"] = SKColors.Brown,
+    ["голуб"] = SKColors.LightBlue
+};
     static void Main()
     {
         string filePath = @"/Users/lamaks/Documents/CodeSpace/C#/TextReader/test_book.txt";
@@ -67,84 +42,60 @@ class Program
             Console.WriteLine($"File opened. Length: {fileContent.Length}");
             FindAndCountColors(fileContent);
         }
-        Draw(); // Теперь это статический метод
     }
 
     static void FindAndCountColors(string text)
     {
-        Dictionary<string, int> colorCounts = new Dictionary<string, int>();
-        Dictionary<string, List<string>> colorExamples = new Dictionary<string, List<string>>();
-
+        List<SKColor> ColorsList = new List<SKColor>();
         var words = text.Split(new[] { ' ', '.', ',', '!', '?', ';', ':', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var word in words)
         {
             string lowerWord = word.ToLower();
-
-            foreach (var colorPair in ColorDictionary.Colors)
+            
+            foreach (var colorPair in Colors)
             {
                 if (lowerWord.Contains(colorPair.Key))
                 {
-                    string colorName = colorPair.Value;
-
-                    if (colorCounts.ContainsKey(colorName))
-                    {
-                        colorCounts[colorName]++;
-                    }
-                    else
-                    {
-                        colorCounts[colorName] = 1;
-                    }
-
-                    if (!colorExamples.ContainsKey(colorName))
-                    {
-                        colorExamples[colorName] = new List<string>();
-                    }
-                    if (!colorExamples[colorName].Contains(word))
-                    {
-                        colorExamples[colorName].Add(word);
-                    }
+                    ColorsList.Add(colorPair.Value);
                     break;
                 }
             }
         }
-        if (colorCounts.Count > 0)
-        {
-            Console.WriteLine("\nFound colors:");
+        Console.WriteLine($"Number of colors found: {ColorsList.Count}");
+        Draw(ColorsList.Count, ColorsList);
 
-            foreach (var color in colorCounts.OrderByDescending(x => x.Value))
-            {
-                Console.WriteLine($"{color.Key}: {color.Value} times" +
-                  $"({string.Join(", ", colorExamples[color.Key].Take(3))}" + "...)");
-            }
-
-            Console.WriteLine($"\nTotal unique colors found: {colorCounts.Count}");
-            Console.WriteLine($"Total color occurrences: {colorCounts.Values.Sum()}");
-        }
-        else
-        {
-            Console.WriteLine("No colors found in the text.");
-        }
     }
 
-
-    static void Draw()
+    static void Draw(int ColorsNumber,List<SKColor> ColorList)
     {
-        int width = 20;
-        int height = 20;
-        using (var bitmap = new SKBitmap(width, height))
-    { 
-        bitmap.SetPixel(0, 0, SKColors.Red);
-        bitmap.SetPixel(10, 10, SKColors.Blue); 
-        bitmap.SetPixel(19, 19, SKColors.Green); 
-
-        using (var image = SKImage.FromBitmap(bitmap))
-        using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
-        using (var stream = File.OpenWrite("photo_res.png"))
+        int size = (int)Math.Ceiling(Math.Sqrt(ColorsNumber));
+        using (var bitmap = new SKBitmap(size, size))
         {
-            data.SaveTo(stream);
+        int color_index = 0;
+        for (int y = 0; y < size; y++)
+        {
+            for (int x = 0; x < size; x++)
+            {
+                if (color_index < ColorList.Count)
+                {
+                    bitmap.SetPixel(x, y, ColorList[color_index]);
+                    color_index++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (color_index >= ColorList.Count) break;
         }
-    }
+            using (var image = SKImage.FromBitmap(bitmap))
+            using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
+            using (var stream = File.OpenWrite("photo_res.png"))
+            {
+                data.SaveTo(stream);
+            }
+        }
         Console.WriteLine("Image saved as photo_res.png");
     }
 }
